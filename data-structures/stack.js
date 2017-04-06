@@ -51,28 +51,45 @@ What's the time complexity?
  */
 
 function Stack(capacity) {
-  // implement me...
+  this.storage = '';
 }
 
 Stack.prototype.push = function(value) {
-  // implement me...
+  this.storage = this.storage.concat("***", value);
 };
 // Time complexity:
 
 Stack.prototype.pop = function() {
-  // implement me...
+  // slice off the last characters up until ***
+  var str = this.storage.slice(this.storage.lastIndexOf('***') + 3);
+  // updating the new stack without the last item
+  this.storage = this.storage.substring(0 , this.storage.lastIndexOf('***'))
+  return str;
 };
-// Time complexity:
-
+// Time complexity
 Stack.prototype.peek = function() {
-  // implement me...
+  return this.storage.slice(this.storage.lastIndexOf('***') + 3);
 };
 // Time complexity:
 
 Stack.prototype.count = function() {
-  // implement me...
+  var copyString = this.storage;
+  var count = 0;
+  console.log(copyString.length);
+  while(copyString.length >= 0) {
+    // copyString.prototype.pop();
+    count++;
+  }
+  return count;
 };
 // Time complexity:
+
+var kevinStack = new Stack();
+kevinStack.push('great');
+kevinStack.push('anothegreat');
+kevinStack.push('topStack');
+console.log(kevinStack.count());
+
 
 
 /*
