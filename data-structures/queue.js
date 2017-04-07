@@ -45,35 +45,49 @@ myQueue.until(7)
 => 3
 What's the time complexity?
 
-
-
-
- */
+*/
 
 function Queue(capacity) {
-  // implement me...
+  this.storage = {};
+  this.enq = 0;
+  this.deq = 0;
 }
 
 Queue.prototype.enqueue = function(value) {
-  // implement me...
+  this.storage[this.enq] = value;
+  this.enq++;
+  console.log(this.storage);
+  return this.storage
 };
 // Time complexity:
 
 Queue.prototype.dequeue = function() {
-  // implement me...
+  var saveQueueItem = this.storage[this.deq];
+  delete this.storage[this.deq];
+  this.deq++;
+  console.log(saveQueueItem);
+  return saveQueueItem;
 };
 // Time complexity:
 
 Queue.prototype.peek = function() {
-  // implement me...
+  return this.storage[this.deq];
 };
 
 Queue.prototype.count = function() {
-  // implement me...
+  var count = Object.keys(this.storage).length
+  return count;
 };
 // Time complexity:
 
-
+var newQueue = new Queue();
+newQueue.enqueue(5);
+newQueue.enqueue(3);
+newQueue.enqueue(6);
+newQueue.enqueue(5);
+newQueue.dequeue();
+newQueue.enqueue(9);
+newQueue.count();
 
 /*
 *** Exercises:
