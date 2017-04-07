@@ -49,29 +49,29 @@ What's the time complexity?
 
 function Queue(capacity) {
   this.storage = {};
-  this.enq = 0;
-  this.deq = 0;
+  this.head = 0;
+  this.tail = 0;
 }
 
 Queue.prototype.enqueue = function(value) {
-  this.storage[this.enq] = value;
-  this.enq++;
+  this.storage[this.head] = value;
+  this.head++;
   console.log(this.storage);
   return this.storage
 };
 // Time complexity:
 
 Queue.prototype.dequeue = function() {
-  var saveQueueItem = this.storage[this.deq];
-  delete this.storage[this.deq];
-  this.deq++;
+  var saveQueueItem = this.storage[this.tail];
+  delete this.storage[this.tail];
+  this.tail++;
   console.log(saveQueueItem);
   return saveQueueItem;
 };
 // Time complexity:
 
 Queue.prototype.peek = function() {
-  return this.storage[this.deq];
+  return this.storage[this.head];
 };
 
 Queue.prototype.count = function() {
