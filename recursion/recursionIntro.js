@@ -20,18 +20,42 @@ var loopDown = function(n) {
 
 //4. Write a function 'RecursiveExponent' that takes two arguments base, and expo, recursively returns exponent value of the base.
 
-//5. Write a function 'recursiveMultiplier' that takes two arguments, 'arr and num', and multiplies each arr value into by num and returns an array of the values.
+//5. Write a function 'recursiveMultiplier' that takes two arguments,
+// 'arr and num', and multiplies each arr value into by num and returns an array of the values.
+
+var recursiveMultiplier = function(arr , num) {
+  var emptyArray = []
+  var addItems = function(arr) {
+    if(arr.length > 0) {
+      emptyArray.push(arr.shift()*num));
+      addItems(arr);
+    }
+    return;
+  }
+  addItems(arr);
+  return emptyArray;
+}
+
+var recursiveMultiplier = function(arr ,num) {
+  if(arr.length === 0) {
+    return arr;
+  }
+  var last = arr.pop();
+
+}
+
 
 //6. Write a function 'recursiveReverse' that takes an array and uses recursion to return its contents in reverse
 
 var recursiveReverse = function(arr) {
   var emptyArray = [];
-  debugger;
-  var re = function(arr) {
-    if(arr.length === 0) {
-      return emptyArray;
+  var addItems = function(orderedArr) {
+    if(orderedArr.length >  0) {
+      emptyArray.push(orderedArr.pop());
+      addItems(orderedArr);
     }
-    emptyArray.push(arr.pop());
+    return;
    }
-   return re(arr);
+   addItems(arr);
+   return emptyArray;
 }
