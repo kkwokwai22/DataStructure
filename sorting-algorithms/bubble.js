@@ -19,3 +19,17 @@ Variants:
 (https://en.wikipedia.org/wiki/Cocktail_sort)
 
 */
+
+var bubbleSort = function(arr) {
+  // for k, loop through 1 to n - 1
+  for(var k = 0; k < arr.length-1; k++) {
+    for(var i = 0; i < arr.length-1; i++) {
+      if(arr[i] > arr[i+1]) {
+        var temp = arr[i];
+        arr[i] = arr[i+1];
+        arr[i+1] = temp;
+      }
+    }
+  }
+  return arr;
+}
